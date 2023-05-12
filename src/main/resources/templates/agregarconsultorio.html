@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1" <title>
+	</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link active" th:href="@{/}">Inicio</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/list-doctor}">Doctores</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form th:action="@{/save-consultorio}" th:object="${consultorio}" method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h3>Agregar consultorio</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>Numero consultorio</label>
+							<input th:field="*{numConsultorio}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Piso</label>
+							<input th:field="*{piso}" type="text" class="form-control" />
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" class="btn btn-success" value="Save">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
